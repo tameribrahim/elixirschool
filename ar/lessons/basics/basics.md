@@ -1,5 +1,5 @@
 ---
-version: 1.1.2
+version: 1.2.1
 title: الأساسيات
 ---
 
@@ -17,7 +17,7 @@ title: الأساسيات
 
     % elixir -v
     Erlang/OTP {{ site.erlang.OTP }} [erts-{{ site.erlang.erts }}] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
-
+    
     Elixir {{ site.elixir.version }}
 
 ### تشغيل نمط موجة الأوامر التفاعلي
@@ -27,11 +27,12 @@ title: الأساسيات
 دعنا نبدأ بتنفيذ الأمر `iex`:
 
     Erlang/OTP {{ site.erlang.OTP }} [erts-{{ site.erlang.erts }}] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
-
+    
     Interactive Elixir ({{ site.elixir.version }}) - press Ctrl+C to exit (type h() ENTER for help)
     iex>
 
 دعنا نحاول كتابة بعض الجُمَل (التعبيرات) البسيطة:
+
 ```elixir
 iex> 2+3
 5
@@ -66,7 +67,7 @@ iex> 0x1F
 
 ### الأعداد العشرية
 
-في إليكسير، يجب كتابة خانة واحدة على الأقل قبل الفاصلة لتمثيل عدد عشري كما يوجد دعم للأس بستخدام `e`.
+في إليكسير، يجب كتابة خانة واحدة على الأقل قبل الفاصلة لتمثيل العدد العشري; والذي يملك ترميز ٦٤-بت ثنائي الدقة ودعم للأس بإستخدام `e`.
 
 ```elixir
 iex> 3.41
@@ -100,7 +101,7 @@ iex> :foo == :bar
 false
 ```
 
-ملاحظة: القيم المنطقية `true` و `false` تعتبر ذرات `:true` و `:false`.
+ملاحظة: القيم المنطقية `true` و `false` تعتبر ذرات `:true` و `:false` على الترتيب.
 
 ```elixir
 iex> is_atom(true)
@@ -111,14 +112,14 @@ iex> :true === true
 true
 ```
 
-اسماء الوحدات في إليكسير هي عبارة عن ذرات. `MyApp.MyModule` هو ذرة, حتى ولو لم يتم تعريف هذه الوحدة.
+اسماء الوحدات في إليكسير هي عبارة عن ذرات. `MyApp.MyModule` هو ذرة, حتى ولو لم يتم تعريف هذه الوحدة بعد.
 
 ```elixir
 iex> is_atom(MyApp.MyModule)
 true
 ```
 
-الذرات ايضاً مستخدمة لتكون مرجع وحدات من مكتبات لغة البرمجة إرلانج.
+تستخدم الذرات أيضاً للإشارة للوحدات من مكتبات لغة البرمجة إرلانج, بما فيها المكتبات المبنية بهذه اللغة.
 
 ```elixir
 iex> :crypto.strong_rand_bytes 3
